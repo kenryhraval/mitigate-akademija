@@ -11,10 +11,6 @@ class CoinManager
     end
   end
 
-  def get_balance
-    @balance
-  end
-
   def deduct_amount(amount)
     return false if amount > @balance
 
