@@ -6,7 +6,9 @@ class CoinManager
   end
 
   def add_coins(amount)
-    @balance
+    if amount >= 0
+      @balance += amount
+    end
   end
 
   def get_balance
