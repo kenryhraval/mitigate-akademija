@@ -25,7 +25,7 @@ class VendingMachine
     return 'Invalid product' if product.nil?
     return 'Insufficient funds' if balance < product[:price]
 
-    @product_catalog.update_stock(code)
+    return "Product out of stock" if !@product_catalog.update_stock(code)
     change = @transaction_processor.process_transaction(product, balance)
     @coin_manager.deduct_amount(product[:price])
     @display_manager.format_transaction_result(product[:name], change)
